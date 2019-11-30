@@ -1,0 +1,11 @@
+Vue CLI v3.8.2
+┌───────────────────────────┐
+│  Update available: 4.1.1  │
+└───────────────────────────┘
+Please pick a preset: Manually select features
+Check the features needed for your project: Babel, TS, Linter
+Use class-style component syntax? No
+Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? No
+Pick a linter / formatter config: TSLint
+Pick additional lint features: (Press <space> to select, <a> to toggle all? In dedicated config files
+Save this as a preset for future projects? (y/N) N
