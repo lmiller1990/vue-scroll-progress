@@ -7,6 +7,8 @@
 <script lang="ts">
 import Vue from 'vue'
 
+import { getScrollPercentage } from './progress'
+
 interface IData {
   marker: HTMLElement | null
   progress: string
@@ -17,7 +19,7 @@ export default Vue.extend({
   name: 'Progress',
   created() {
     window.addEventListener('scroll', this.listener)
-
+    this.scrollEvent = this.listener
   },
 
   data(): IData {
@@ -38,18 +40,7 @@ export default Vue.extend({
         this.marker = marker
       }
 
-      const { y } = this.marker.getBoundingClientRect() as DOMRect
-      const progress =  100 - ((y - window.innerHeight) / (document.body.scrollHeight - window.innerHeight) * 100)
-
-      if (progress < 0) {
-        return this.progress = '0'
-      }
-
-      if (progress > 100) {
-        return this.progress = '100'
-      }
-
-      this.progress = progress.toFixed(0)
+      this.progress = getScrollPercentage(this.marker)
     },
 
     getMarker(): HTMLElement | null {
@@ -73,7 +64,6 @@ export default Vue.extend({
     if (!this.scrollEvent) {
       return
     }
-
     window.removeEventListener('scroll', this.scrollEvent)
   },
 })

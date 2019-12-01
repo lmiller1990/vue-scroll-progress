@@ -11,3 +11,9 @@ export default Vue.extend({
   name: 'ProgressMarker',
 })
 </script>
+
+<style scoped>
+#progress-marker {
+  border: 1px solid red;
+}
+</style>
