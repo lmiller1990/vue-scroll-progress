@@ -59,7 +59,7 @@ export default Vue.extend({
       }
 
       return null
-    }
+    },
   },
 
   mounted() {
