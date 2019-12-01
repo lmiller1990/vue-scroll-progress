@@ -1,7 +1,3 @@
-Vue CLI v3.8.2
-┌───────────────────────────┐
-│  Update available: 4.1.1  │
-└───────────────────────────┘
 Please pick a preset: Manually select features
 Check the features needed for your project: Babel, TS, Linter
 Use class-style component syntax? No

@@ -1,20 +1,46 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Progress />
+    <div
+      v-for="item in items"
+      :key="item"
+    >
+      {{ item }}
+    </div>
+    <ProgressMarker />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import Vue from 'vue'
+
+import ProgressMarker from './components/ProgressMarker.vue'
+import Progress from './components/Progress.vue'
+
+interface IData {
+  items: string[]
+}
 
 export default Vue.extend({
   name: 'app',
+
   components: {
-    HelloWorld,
+    ProgressMarker,
+    Progress,
   },
-});
+
+  data(): IData {
+    return {
+      items: [],
+    }
+  },
+
+  created() {
+    for (let i = 0; i < 100; i++) {
+      this.items.push(`Item ${i}`)
+    }
+  },
+})
 </script>
 
 <style>
