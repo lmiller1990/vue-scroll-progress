@@ -1,7 +1,5 @@
 <template>
-  <div id="progress-end-marker">
-    Marker
-  </div>
+  <div id="progress-end-marker" />
 </template>
 
 <script lang="ts">

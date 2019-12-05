@@ -1,21 +1,42 @@
 <template>
   <div id="app">
     <Progress />
+
     <div
-      v-for="item in items2"
+      v-for="item in items.slice(0, 1)"
       :key="item"
+      class="item"
     >
       {{ item }}
     </div>
+    <div style="margin-top: 100px; padding: 0px; margin: 0px;">Ok!!</div>
+    <div
+      v-for="item in items.slice(1, 32)"
+      :key="item"
+      class="item"
+    >
+      {{ item }}
+    </div>
+
     <ProgressStartMarker />
 
     <div
-      v-for="item in items"
+      v-for="item in items.slice(33, 67)"
       :key="item"
+      class="item"
     >
       {{ item }}
     </div>
+
     <ProgressEndMarker />
+
+    <div
+      v-for="item in items.slice(67)"
+      :key="item"
+      class="item"
+    >
+      {{ item }}
+    </div>
   </div>
 </template>
 
@@ -28,7 +49,6 @@ import Progress from './components/Progress.vue'
 
 interface IData {
   items: string[]
-  items2: string[]
 }
 
 export default Vue.extend({
@@ -43,7 +63,6 @@ export default Vue.extend({
   data(): IData {
     return {
       items: [],
-      items2: [],
     }
   },
 
@@ -51,21 +70,21 @@ export default Vue.extend({
     for (let i = 0; i < 100; i++) {
       this.items.push(`Item ${i}`)
     }
-
-    for (let i = 0; i < 100; i++) {
-      this.items2.push(`Item ${i + 100}`)
-    }
   },
 })
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 25px;
+}
+
+body {
+  margin: 0 !important;
+}
+
+.item {
+  margin: 25px;
+  padding: 10px;
 }
 </style>

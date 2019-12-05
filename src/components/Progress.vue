@@ -18,7 +18,7 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import { getScrollPercentage } from './progress'
+import { getScrollPercentage, getPos, getPosRelativeToBody } from './progress'
 
 interface IMarkers {
   progressStartMarker: HTMLElement | null
