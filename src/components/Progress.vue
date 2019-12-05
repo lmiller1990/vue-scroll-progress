@@ -21,8 +21,8 @@ import Vue from 'vue'
 import { getScrollPercentage } from './progress'
 
 interface IMarkers {
-  startMarker: HTMLElement | null
-  endMarker: HTMLElement | null
+  progressStartMarker: HTMLElement | null
+  progressEndMarker: HTMLElement | null
   progressCircle: SVGCircleElement | null
 }
 
@@ -47,25 +47,25 @@ export default Vue.extend({
   data(): IData {
     return {
       scrollEvent: null,
-      startMarker: null,
-      endMarker: null,
+      progressStartMarker: null,
+      progressEndMarker: null,
       progressCircle: null,
     }
   },
 
   methods: {
     listener() {
-      if (!this.startMarker || !this.endMarker || !this.progressCircle) {
+      if (!this.progressStartMarker || !this.progressEndMarker || !this.progressCircle) {
         const markers = this.getMarkers()
         if (!markers) {
           return
         }
-        this.startMarker = markers.startMarker
-        this.endMarker = markers.endMarker
+        this.progressStartMarker = markers.progressStartMarker
+        this.progressEndMarker = markers.progressEndMarker
         this.progressCircle = markers.progressCircle
       }
 
-      if (!this.startMarker || !this.endMarker || !this.progressCircle) {
+      if (!this.progressStartMarker || !this.progressEndMarker || !this.progressCircle) {
         return
       }
 
@@ -75,19 +75,19 @@ export default Vue.extend({
       this.progressCircle.style.strokeDashoffset = `${circumference}`
 
       requestAnimationFrame(() => {
-        getScrollPercentage(this.startMarker!, this.endMarker!, this.progressCircle!, circumference)
+        getScrollPercentage(this.progressStartMarker!, this.progressEndMarker!, this.progressCircle!, circumference)
       })
     },
 
     getMarkers(): IMarkers | null {
-      const endMarker = document.querySelector<HTMLElement>('#progress-marker')
-      const startMarker = document.querySelector<HTMLElement>('#start-marker')
+      const progressEndMarker = document.querySelector<HTMLElement>('#progress-end-marker')
+      const progressStartMarker = document.querySelector<HTMLElement>('#progress-start-marker')
       const progressCircle = document.querySelector<SVGCircleElement>('circle')
 
-      if (startMarker && endMarker && progressCircle) {
+      if (progressStartMarker && progressEndMarker && progressCircle) {
         return {
-          startMarker,
-          endMarker,
+          progressStartMarker,
+          progressEndMarker,
           progressCircle,
         }
       }

@@ -19,7 +19,7 @@
 
 const getPosRelativeToBody = (el: HTMLElement) => {
   return Math.abs(
-    document.body.getBoundingClientRect().top - el.getBoundingClientRect().top
+    document.body.getBoundingClientRect().top - el.getBoundingClientRect().top,
   )
 }
 
@@ -46,5 +46,5 @@ const getScrollPercentage = (startMarker: HTMLElement, marker: HTMLElement, circ
 }
 
 export {
-  getScrollPercentage
+  getScrollPercentage,
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="progress-marker">
+  <div id="progress-end-marker">
     Marker
   </div>
 </template>
@@ -8,12 +8,12 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'ProgressMarker',
+  name: 'ProgressEndMarker',
 })
 </script>
 
 <style scoped>
-#progress-marker {
+div {
   border: 1px solid red;
 }
 </style>

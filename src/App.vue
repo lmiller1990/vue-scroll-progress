@@ -7,7 +7,7 @@
     >
       {{ item }}
     </div>
-    <ProgressStart />
+    <ProgressStartMarker />
 
     <div
       v-for="item in items"
@@ -15,15 +15,15 @@
     >
       {{ item }}
     </div>
-    <ProgressMarker />
+    <ProgressEndMarker />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-import ProgressMarker from './components/ProgressMarker.vue'
-import ProgressStart from './components/ProgressStart.vue'
+import ProgressStartMarker from './components/ProgressStartMarker.vue'
+import ProgressEndMarker from './components/ProgressEndMarker.vue'
 import Progress from './components/Progress.vue'
 
 interface IData {
@@ -35,8 +35,8 @@ export default Vue.extend({
   name: 'app',
 
   components: {
-    ProgressStart,
-    ProgressMarker,
+    ProgressStartMarker,
+    ProgressEndMarker,
     Progress,
   },
 
@@ -53,7 +53,7 @@ export default Vue.extend({
     }
 
     for (let i = 0; i < 100; i++) {
-      this.items2.push(`Item ${i+100}`)
+      this.items2.push(`Item ${i + 100}`)
     }
   },
 })
