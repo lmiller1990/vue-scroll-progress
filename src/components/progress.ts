@@ -1,32 +1,37 @@
-const getPosRelativeToBody = (el: HTMLElement) => {
+const getScrollPercentage = (startMarker: HTMLElement, endMarker: HTMLElement): number => {
+  const offsetFromTop = getPosRelativeToBody(startMarker)
+  const total = getPosRelativeToBody(endMarker) - offsetFromTop - window.innerHeight
+  const progress = ((window.scrollY - offsetFromTop) / total)
+  return progress
+}
+
+const updateCircle = (circle: SVGCircleElement, progress: number): void => {
+  const circumference = circle.r.baseVal.value * 2 * Math.PI
+
+  // draw nothing
+  if (progress < 0) {
+    circle.style.strokeDashoffset = `${circumference}`
+    return
+  }
+
+  // draw the full circle
+  if (progress > 1) {
+    circle.style.strokeDashoffset = '0'
+    return
+  }
+
+  circle.style.strokeDasharray = `${circumference}`
+  const offset = circumference - (circumference * progress)
+  circle.style.strokeDashoffset = `${offset}`
+}
+
+const getPosRelativeToBody = (el: HTMLElement): number => {
   return Math.abs(
     document.documentElement.getBoundingClientRect().top - el.getBoundingClientRect().top,
   );
 }
 
-const getScrollPercentage = (startMarker: HTMLElement, marker: HTMLElement, circle: SVGCircleElement, circumference: number) => {
-  const offsetFromTop = getPosRelativeToBody(startMarker) + marker.getBoundingClientRect().height
-
-  const total = getPosRelativeToBody(marker) - getPosRelativeToBody(startMarker) - window.innerHeight
-  const progress = (((window.scrollY - offsetFromTop) / total) * 100)
-
-  const offset = circumference - (circumference * (progress * 0.01))
-
-  if (progress < 0) {
-    circle.style.strokeDashoffset = (Math.PI * 100).toFixed(10)
-    return
-  }
-
-  if (progress > 100) {
-    circle.style.strokeDashoffset = '0'
-    return
-  }
-
-  circle.style.strokeDashoffset = `${offset}`
-  circle.style.strokeWidth = '4'
-}
-
 export {
   getScrollPercentage,
-  getPosRelativeToBody,
+  updateCircle,
 }

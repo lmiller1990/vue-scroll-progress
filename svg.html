@@ -1,0 +1,131 @@
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const circles = document.querySelectorAll('circle')
+  console.log(circles)
+  circles.forEach(circle => {
+    circle.style.strokeDasharray = `${circle.r.baseVal.value * Math.PI * 2}`
+  })
+})
+</script>
+
+<style>
+  code {
+    text-align: left;
+    width: 100%;
+  }
+
+  .d-flex {
+    display: flex
+  }
+
+  .wrap { 
+    align-items: center;
+    flex-direction: column;
+    margin: 0 20px 50px 0;
+  }
+</style>
+
+<div class="d-flex">
+  <div class="d-flex wrap">
+    <h4>Progress = 0.25 (25%)</h4>
+    <svg
+      class="progress"
+      width="120"
+      height="120"
+    >
+      <circle
+        stroke-width="4"
+        stroke="red"
+        r="50"
+        cx="60"
+        cy="60"
+        fill="transparent"
+        stroke-dashoffset="235"
+      />
+    </svg>
+
+    <div style="text-align: left;" class="d-flex wrap">
+      <code>circumference = 50px * 2 * PI = 314px</code>
+      <code>circumference - (circumference * progress) = 235</code>
+      <code>stroke-dashoffset="235"</code>
+    </div>
+  </div>
+
+  <div class="d-flex wrap">
+    <h4>Progress = 0.50 (50%)</h4>
+    <svg
+      class="progress"
+      width="120"
+      height="120"
+    >
+      <circle
+        stroke-width="4"
+        stroke="red"
+        r="50"
+        cx="60"
+        cy="60"
+        fill="transparent"
+        stroke-dashoffset="157"
+      />
+    </svg>
+
+    <div style="text-align: left;" class="d-flex wrap">
+      <code>circumference = 50px * 2 * PI = 314px</code>
+      <code>circumference - (circumference * progress) = 157</code>
+      <code>stroke-dashoffset="157"</code>
+    </div>
+  </div>
+</div>
+
+
+<div class="d-flex">
+  <div class="d-flex wrap">
+    <h4>Progress = 0.75 (75%)</h4>
+    <svg
+      class="progress"
+      width="120"
+      height="120"
+    >
+      <circle
+        stroke-width="4"
+        stroke="red"
+        r="50"
+        cx="60"
+        cy="60"
+        fill="transparent"
+        stroke-dashoffset="78.5"
+      />
+    </svg>
+
+    <div style="text-align: left;" class="d-flex wrap">
+      <code>circumference = 50px * 2 * PI = 314px</code>
+      <code>circumference - (circumference * progress) = 78.5</code>
+      <code>stroke-dashoffset="78.5"</code>
+    </div>
+  </div>
+
+  <div class="d-flex wrap">
+    <h4>Progress = 1.0% (100%)</h4>
+    <svg
+      class="progress"
+      width="120"
+      height="120"
+    >
+      <circle
+        stroke-width="4"
+        stroke="red"
+        r="50"
+        cx="60"
+        cy="60"
+        fill="transparent"
+        stroke-dashoffset="0"
+      />
+    </svg>
+
+    <div style="text-align: left;" class="d-flex wrap">
+      <code>circumference = 50px * 2 * PI = 314px</code>
+      <code>circumference - (circumference * progress) = 0</code>
+      <code>stroke-dashoffset="0"</code>
+    </div>
+  </div>
+</div>
