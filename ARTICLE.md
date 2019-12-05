@@ -452,7 +452,7 @@ Now we can have all the pieces need to draw circle as we scroll: the percentage 
     height="120"
   >
     <circle
-      stroke-width="4"
+      stroke-width="0"
       stroke="red"
       r="50"
       cx="60"
@@ -499,6 +499,7 @@ const updateCircle = (circle: SVGCircleElement, progress: number): void => {
     return
   }
 
+  circle.style.strokeWidth = '4'
   circle.style.strokeDasharray = `${circumference}`
   const offset = circumference - (circumference * progress)
   circle.style.strokeDashoffset = `${offset}`

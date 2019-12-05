@@ -20,6 +20,7 @@ const updateCircle = (circle: SVGCircleElement, progress: number): void => {
     return
   }
 
+  circle.style.strokeWidth = '4'
   circle.style.strokeDasharray = `${circumference}`
   const offset = circumference - (circumference * progress)
   circle.style.strokeDashoffset = `${offset}`

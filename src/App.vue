@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 
+    Scroll Down to see progress scroller demo
     <Progress />
 
     <div

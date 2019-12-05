@@ -5,7 +5,7 @@
     height="120"
   >
     <circle
-      stroke-width="4"
+      stroke-width="0"
       stroke="red"
       r="50"
       cx="60"
