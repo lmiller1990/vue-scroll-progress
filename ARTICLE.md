@@ -243,6 +243,8 @@ mounted() {
 }
 ```
 
+SS:3.5
+
 It works! There are tons of improvements we will make, but this is a great proof of concept.
 
 The entire `<script>` tag of `Progress.vue` is as follows:
