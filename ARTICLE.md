@@ -1,6 +1,8 @@
-In this article, I'll look at how you can replicate the circular progress scroller Tech Crunch use to gamify their articles, encouraging users to scroll to the end (and view the advertisement on the end of the article). 
+In this article, I'll look at how you can replicate the circular progress scroller [Tech Crunch](https://techcrunch.com/) use to gamify their articles, encouraging users to scroll to the end (and view the advertisement on the end of the article). 
 
-This will be build using Vue and TypeScript. We will be separating the business logic (calculations related to scrolling and animation) from Vue entirely, though, so you could easily adapt this to your framework of choice. 
+This will be build using Vue, TypeScript and SVG. We will be separating the business logic (calculations related to scrolling and animation) from Vue entirely, though, so you could easily adapt this to your framework of choice. 
+
+The source code is available [here](https://github.com/lmiller1990/vue-scroll-progress) and a working demo [here](https://lmiller1990.github.io/vue-scroll-progress/).
 
 This article isn't a typical "here's the code, copy and paste it" guide - I'll write a basic proof of concept first, and then refactor it, discussing some best practices I've learned building Vue apps and framework agnostic libraries over the years. Specifically, I'll look at separating framework-agnostic logic (eg, business logic that doesn't use any of Vue's APIs) from framework specific code (eg, the parts of the app that reference `this`, referring to the Vue instance, or make use Vue's reactivity system, such as computed properties).
 
@@ -588,3 +590,13 @@ window.addEventListener('scroll', () => {
 ```
 
 To learn why this is a good to do, research `requestAnimationFrame` and passive event listeners - there is a lot of information out there. There are other improvements and optimizations that I might write about in a future article.
+
+## Conclusion
+
+This article covered:
+
+- some caveats of `getClientBoundingRect`
+- using Vue as a thin wrapper around your business logic
+- basic SVG
+
+The source code is available [here](https://github.com/lmiller1990/vue-scroll-progress) and a working demo [here](https://lmiller1990.github.io/vue-scroll-progress/).
